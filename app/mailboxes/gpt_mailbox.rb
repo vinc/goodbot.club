@@ -3,9 +3,9 @@ class GptMailbox < ApplicationMailbox
     if User.where(email: mail.from, status: ["paid", "admin"]).exists?
       question = mail.body.decoded
       response = chat(question)
-      BotMailer.reply(mail.to, mail.from, mail.subject, response).deliver_now
+      #BotMailer.reply(mail.to, mail.from, mail.subject, response).deliver_now
     else
-      bounce_with BotMailer.bounce(mail.from, mail.subject).deliver_now
+      #bounce_with BotMailer.bounce(mail.from, mail.subject).deliver_now
     end
   end
 
