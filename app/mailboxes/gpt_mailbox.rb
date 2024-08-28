@@ -1,5 +1,7 @@
 class GptMailbox < ApplicationMailbox
   def process
+    Rails.logger.info { "Processing email from '#{mail.from}' to '#{mail.to}':" }
+    Rails.logger.info { mail }
     if User.where(email: mail.from, status: ["paid", "admin"]).exists?
       question = mail.body.decoded
       response = chat(question)
