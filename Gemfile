@@ -45,6 +45,8 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "dotenv"
 end
 
 group :development do
@@ -54,3 +56,10 @@ group :development do
   gem "letter_opener"
 end
 
+gem "ruby-openai"
+gem "word_wrap"
+gem "redcarpet"
+gem "devise"
+gem "devise-i18n"
+
+gem "devise-bootstrap5"

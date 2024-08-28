@@ -11,4 +11,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  devise_for :users, path: "account", path_names: {
+    sign_up: "signup",
+    sign_in: "login",
+    sign_out: "logout"
+  }
+
+  root "pages#home"
 end

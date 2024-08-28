@@ -75,6 +75,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.4)
@@ -93,8 +94,26 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    devise (4.9.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
+    devise-bootstrap5 (0.1.3)
+    devise-i18n (1.12.1)
+      devise (>= 4.9.0)
+    dotenv (3.1.2)
     drb (2.2.1)
     erubi (1.13.0)
+    event_stream_parser (1.0.0)
+    faraday (2.11.0)
+      faraday-net_http (>= 2.0, < 3.4)
+      logger
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (3.3.0)
+      net-http
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -130,6 +149,9 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.1)
     msgpack (1.7.2)
+    multipart-post (2.4.1)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.14)
       date
       net-protocol
@@ -152,6 +174,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     parallel (1.26.3)
     parser (3.3.4.2)
       ast (~> 2.4.1)
@@ -204,6 +227,7 @@ GEM
     rake (13.2.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
+    redcarpet (3.6.0)
     redis (5.3.0)
       redis-client (>= 0.22.0)
     redis-client (0.22.2)
@@ -211,6 +235,9 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.9)
       io-console (~> 0.5)
+    responders (3.1.1)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
     rexml (3.3.6)
       strscan
     rubocop (1.65.1)
@@ -242,6 +269,10 @@ GEM
       rubocop-minitest
       rubocop-performance
       rubocop-rails
+    ruby-openai (7.1.0)
+      event_stream_parser (>= 0.3.0, < 2.0.0)
+      faraday (>= 1)
+      faraday-multipart (>= 1)
     ruby-progressbar (1.13.0)
     securerandom (0.3.1)
     sprockets (4.2.1)
@@ -264,7 +295,10 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
+    uri (0.13.1)
     useragent (0.16.10)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -274,6 +308,7 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    word_wrap (1.0.0)
     zeitwerk (2.6.17)
 
 PLATFORMS
@@ -289,19 +324,26 @@ DEPENDENCIES
   brakeman
   cssbundling-rails
   debug
+  devise
+  devise-bootstrap5
+  devise-i18n
+  dotenv
   importmap-rails
   jbuilder
   letter_opener
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.1)
+  redcarpet
   redis (>= 4.0.1)
   rubocop-rails-omakase
+  ruby-openai
   sprockets-rails
   stimulus-rails
   turbo-rails
   tzinfo-data
   web-console
+  word_wrap
 
 BUNDLED WITH
    2.5.17
