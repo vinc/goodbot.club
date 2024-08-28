@@ -1,9 +1,6 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  # Prepare the ingress controller used to receive mail
-  # config.action_mailbox.ingress = :relay
-
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -107,14 +104,21 @@ Rails.application.configure do
     host: ENV["HOSTNAME"]
   }
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: ENV["SMTP_HOSTNAME"],
-    user_name: ENV["SMTP_USERNAME"],
-    password: ENV["SMTP_PASSWORD"],
-    domain: ENV["HOSTNAME"],
-    enable_starttls: true,
-    port: 587,
-    authentication: :login
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: ENV["SMTP_HOSTNAME"],
+  #   user_name: ENV["SMTP_USERNAME"],
+  #   password: ENV["SMTP_PASSWORD"],
+  #   domain: ENV["HOSTNAME"],
+  #   enable_starttls: true,
+  #   port: 587,
+  #   authentication: :login
+  # }
+
+  config.action_mailer.delivery_method = :ses
+
+  config.action_mailbox.ingress = :ses
+
+  config.action_mailbox.ses.subscribed_topic = ENV["AWS_SES_TOPIC"]
+  config.action_mailbox.ses.s3_client_options = { region: ENV["AWS_REGION"] }
 end

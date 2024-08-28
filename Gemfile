@@ -56,6 +56,7 @@ group :development do
   gem "letter_opener"
 end
 
+gem "aws-sdk-rails", "~> 4"
 gem "ruby-openai"
 gem "word_wrap"
 gem "redcarpet"
