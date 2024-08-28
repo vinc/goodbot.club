@@ -4,10 +4,10 @@ class GptMailbox < ApplicationMailbox
     Rails.logger.info { "-------------------------------" }
     Rails.logger.info { mail }
     Rails.logger.info { "-------------------------------" }
-    Rails.logger.info { mail.body.decoded }
+    Rails.logger.info { mail.text_part&.decoded }
     Rails.logger.info { "-------------------------------" }
     if User.where(email: mail.from, status: ["paid", "admin"]).exists?
-      question = mail.body.decoded
+      question = mail.text_part&.decoded
       #response = chat(question)
       #BotMailer.reply(mail.to, mail.from, mail.subject, response).deliver_now
     else
