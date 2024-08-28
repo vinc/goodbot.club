@@ -1,8 +1,12 @@
 class GptMailbox < ApplicationMailbox
   def process
-    question = mail.body.decoded
-    response = chat(question)
-    BotMailer.reply(mail.to, mail.from, mail.subject, response).deliver_now
+    if User.where(email: mail.from).exists?
+      question = mail.body.decoded
+      response = chat(question)
+      BotMailer.reply(mail.to, mail.from, mail.subject, response).deliver_now
+    else
+      bounce_with BotMailer.bounce(mail.from, mail.subject).deliver_now
+    end
   end
 
   protected
