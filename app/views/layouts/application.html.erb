@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title><%= content_for(:title) || "Good Bot Club" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -17,7 +17,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="container">
+  <body class="h-100 container py-3">
     <%= yield %>
   </body>
 </html>
