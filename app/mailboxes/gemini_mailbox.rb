@@ -1,12 +1,14 @@
 class GeminiMailbox < ApplicationMailbox
+  NAME="gemini@goodbot.club"
+
   def process
     Rails.logger.info { mail }
     if User.where(email: mail.from.first, status: ["paid", "admin"]).exists?
       req = (mail.text_part || mail.body).decoded
       res = chat(req)
-      BotMailer.reply(mail, req, res).deliver_now
+      BotMailer.reply(NAME, mail, req, res).deliver_now
     else
-      # bounce_with BotMailer.bounce(mail).deliver_now
+      # bounce_with BotMailer.bounce(NAME, mail).deliver_now
       bounced!
     end
   end
