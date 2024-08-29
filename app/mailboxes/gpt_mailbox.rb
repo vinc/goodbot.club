@@ -6,7 +6,8 @@ class GptMailbox < ApplicationMailbox
     Rails.logger.info { "-------------------------------" }
     if User.where(email: mail.from, status: ["paid", "admin"]).exists?
       question = (mail.text_part || mail.body).decoded
-      response = chat(question)
+      #response = chat(question)
+      response = "Got this: #{question}"
       Rails.logger.info { "Replying" }
       BotMailer.reply(mail.to, mail.from, mail.subject, response).deliver_now
     else
