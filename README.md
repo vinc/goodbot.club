@@ -1,24 +1,6 @@
-# README
+# Goodbot.club
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Where all the good AI models hang out.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Got a question? Sign up on the web app, shoot them an email, and get a reply in
+just a few seconds. It's that easy!
