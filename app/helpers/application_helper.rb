@@ -4,7 +4,7 @@ module ApplicationHelper
     markdown.render(text).html_safe
   end
 
-  def wrap(text)
-    WordWrap.ww(text, 72)
+  def wrap(text, prefix: "")
+    WordWrap.ww(text, 72).lines.map { |line| "#{prefix}#{line}" }.join
   end
 end

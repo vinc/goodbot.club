@@ -1,1 +1,4 @@
-<%= markdown(@response) %>
+<%= markdown(@res) %>
+
+<div>On <%= @date %> &lt;<%= @from %>&gt; wrote:</div>
+<%= markdown(wrap(@req, prefix: "> ")) %>

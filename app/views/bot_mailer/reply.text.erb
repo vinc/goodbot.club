@@ -1,1 +1,5 @@
-<%= wrap(@response) %>
+<%= wrap(@res) %>
+
+On <%= @date %> <<%= @from %>> wrote:
+
+<%= wrap(@req, prefix: "> ") %>
