@@ -6,13 +6,13 @@ class GptMailbox < ApplicationMailbox
     Rails.logger.info { "-------------------------------" }
     if User.where(email: mail.from.first, status: ["paid", "admin"]).exists?
       question = (mail.text_part || mail.body).decoded
-      #response = chat(question)
+      # response = chat(question)
       response = "Got this: #{question}"
       Rails.logger.info { "Replying" }
       BotMailer.reply(mail.message_id, mail.to.first, mail.from.first, mail.subject, response).deliver_now
     else
       Rails.logger.info { "Bouncing" }
-      #bounce_with BotMailer.bounce(mail.message_id, mail.from.first, mail.subject).deliver_now
+      # bounce_with BotMailer.bounce(mail.message_id, mail.from.first, mail.subject).deliver_now
       bounced!
     end
   end
