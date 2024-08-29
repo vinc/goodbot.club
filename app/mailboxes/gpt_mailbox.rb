@@ -13,15 +13,15 @@ class GptMailbox < ApplicationMailbox
 
   protected
 
-  def chat(req)
+  def chat(text)
     client = OpenAI::Client.new
-    res = client.chat(
+    result = client.chat(
       parameters: {
           model: "gpt-4o",
-          messages: [{ role: "user", content: req }],
+          messages: [{ role: "user", content: text }],
           temperature: 0.7
       }
     )
-    res.dig("choices", 0, "message", "content")
+    result.dig("choices", 0, "message", "content")
   end
 end
