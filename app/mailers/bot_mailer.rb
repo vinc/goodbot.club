@@ -1,10 +1,10 @@
 class BotMailer < ApplicationMailer
-  def bounce(user, subject)
-    mail(to: user, subject: subject)
+  def bounce(message_id, user, subject)
+    mail(reply_to: message_id, to: user, subject: subject)
   end
 
-  def reply(bot, user, subject, response)
+  def reply(message_id, bot, user, subject, response)
     @response = response
-    mail(from: bot, to: user, subject: subject)
+    mail(reply_to: message_id, from: bot, to: user, subject: subject)
   end
 end
