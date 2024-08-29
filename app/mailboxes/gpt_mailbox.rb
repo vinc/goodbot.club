@@ -14,12 +14,10 @@ class GptMailbox < ApplicationMailbox
   protected
 
   def chat(req)
-    return "It works!"
-
     client = OpenAI::Client.new
     res = client.chat(
       parameters: {
-          model: "gpt-4o-mini",
+          model: "gpt-4o",
           messages: [{ role: "user", content: req }],
           temperature: 0.7
       }
