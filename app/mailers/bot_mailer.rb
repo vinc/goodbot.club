@@ -3,7 +3,7 @@ class BotMailer < ApplicationMailer
     mail(to: user, subject: subject)
   end
 
-  def reply(user, bot, subject, response)
+  def reply(bot, user, subject, response)
     @response = response
     mail(from: bot, to: user, subject: subject)
   end
