@@ -5,6 +5,7 @@ module ApplicationHelper
   end
 
   def wrap(text, prefix: "")
-    WordWrap.ww(text, 72).lines.map { |line| "#{prefix}#{line}" }.join
+    #WordWrap.ww(text, 72).lines.map { |line| "#{prefix}#{line}" }.join
+    text.lines.map { |line| "#{prefix}#{line}" }.join
   end
 end
