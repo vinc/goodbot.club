@@ -16,6 +16,7 @@ class GptMailbox < ApplicationMailbox
   protected
 
   def chat(text)
+    return "Hello from GPT"
     client = OpenAI::Client.new
     result = client.chat(
       parameters: {

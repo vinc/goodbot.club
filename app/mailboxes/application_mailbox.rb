@@ -1,4 +1,5 @@
 class ApplicationMailbox < ActionMailbox::Base
-  routing(/^gpt@/i => :gpt)
+  routing(/^claude@/i => :claude)
   routing(/^gemini@/i => :gemini)
+  routing(/^gpt@/i => :gpt)
 end

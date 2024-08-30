@@ -64,5 +64,6 @@ gem "devise"
 gem "devise-i18n"
 gem "good_job", "~> 4.2"
 gem "gemini-ai"
+gem "anthropic"
 
 gem "devise-bootstrap5"

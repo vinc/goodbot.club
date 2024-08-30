@@ -16,6 +16,7 @@ class GeminiMailbox < ApplicationMailbox
   protected
 
   def chat(text)
+    return "Hello from Gemini"
     client = Gemini.new(
       credentials: {
         service: "generative-language-api",
