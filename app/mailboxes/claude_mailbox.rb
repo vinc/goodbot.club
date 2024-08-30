@@ -1,21 +1,10 @@
-class ClaudeMailbox < ApplicationMailbox
-  NAME="claude@goodbot.club"
-
-  def process
-    Rails.logger.info { mail }
-    if User.where(email: mail.from.first, status: ["paid", "admin"]).exists?
-      req = (mail.text_part || mail.body).decoded
-      res = chat(req)
-      BotMailer.reply(NAME, mail, req, res).deliver_now
-    else
-      # bounce_with BotMailer.bounce(NAME, mail).deliver_now
-      bounced!
-    end
+class ClaudeMailbox < BotMailbox
+  def bot
+    "claude@goodbot.club"
   end
 
-  protected
-
   def chat(text)
+    # return "Hello from Claude"
     client = Anthropic::Client.new(access_token: ENV["ANTHROPIC_ACCESS_TOKEN"])
     result = client.messages(
       parameters: {
