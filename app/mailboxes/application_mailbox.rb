@@ -4,12 +4,14 @@ class ApplicationMailbox < ActionMailbox::Base
   routing ->(inbound) { self.received_for?(inbound.mail, /claude@/) } => :claude
   routing ->(inbound) { self.received_for?(inbound.mail, /gemini@/) } => :gemini
   routing ->(inbound) { self.received_for?(inbound.mail, /gpt@/) } => :gpt
+  routing ->(inbound) { self.received_for?(inbound.mail, /mistral@/) } => :mistral
 
   routing(/^claude@/i => :claude)
   routing(/^gemini@/i => :gemini)
   routing(/^gpt@/i => :gpt)
+  routing(/^mistral@/i => :mistral)
 
   def self.received_for?(mail, addr)
-    mail.received.any? { |field| field.value =~ addr }
+    mail.received&.any? { |field| field.value =~ addr }
   end
 end

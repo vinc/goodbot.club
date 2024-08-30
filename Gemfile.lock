@@ -241,6 +241,10 @@ GEM
     marcel (1.0.4)
     mini_mime (1.1.5)
     minitest (5.25.1)
+    mistral-ai (1.2.0)
+      event_stream_parser (~> 1.0)
+      faraday (~> 2.9)
+      faraday-typhoeus (~> 1.1)
     msgpack (1.7.2)
     multi_json (1.15.0)
     multipart-post (2.4.1)
@@ -438,6 +442,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   letter_opener
+  mistral-ai
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.1)

@@ -57,13 +57,17 @@ group :development do
 end
 
 gem "aws-sdk-rails", "~> 4"
-gem "ruby-openai"
 gem "word_wrap"
 gem "redcarpet"
 gem "devise"
 gem "devise-i18n"
 gem "good_job", "~> 4.2"
+
+# NOTE: Must be after devise-i18n
+gem "devise-bootstrap5"
+
+# AI Models
+gem "ruby-openai"
 gem "gemini-ai"
 gem "anthropic"
-
-gem "devise-bootstrap5"
+gem "mistral-ai"

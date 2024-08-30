@@ -15,4 +15,4 @@ SES for sending and receiving email.
 - [x] GPT-4 by OpenAI
 - [x] Claude by Anthropic
 - [x] Gemini by Google
-- [ ] Mistral Large 2 by Mistral
+- [x] Mistral Large by Mistral
