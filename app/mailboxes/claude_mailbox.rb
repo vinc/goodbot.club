@@ -16,7 +16,6 @@ class ClaudeMailbox < ApplicationMailbox
   protected
 
   def chat(text)
-    return "Hello from Anthropic"
     client = Anthropic::Client.new(access_token: ENV["ANTHROPIC_ACCESS_TOKEN"])
     result = client.messages(
       parameters: {
