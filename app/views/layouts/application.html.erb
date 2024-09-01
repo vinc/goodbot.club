@@ -18,6 +18,9 @@
   </head>
 
   <body class="h-100 container py-3">
+    <div class="position-absolute top-0 start-0 w-100 p-3">
+      <%= render "layouts/alerts" %>
+    </div>
     <%= yield %>
   </body>
 </html>
