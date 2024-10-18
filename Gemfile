@@ -61,7 +61,7 @@ gem "word_wrap"
 gem "redcarpet"
 gem "devise"
 gem "devise-i18n"
-gem "good_job", "~> 4.2"
+gem "good_job", "~> 4.4"
 
 # NOTE: Must be after devise-i18n
 gem "devise-bootstrap5"
