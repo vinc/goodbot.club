@@ -56,7 +56,7 @@ group :development do
   gem "letter_opener"
 end
 
-gem "aws-sdk-rails", "~> 4"
+gem "aws-sdk-rails", "~> 5"
 gem "word_wrap"
 gem "redcarpet"
 gem "devise"
